@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 50px 0 100px;
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+}
+
+header {
+    margin: 3rem 0;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.layer {
+    width: 100%;
+}
+
+.cloud {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 100px;
+    background-image: url("assets/transparent/cloud.png");
+}
+
+.wrapper {
+    display: inline-block;
+    width: 100px;
+    position: relative;
+}
+
+.firewall {
+    position: relative;
+    background-image: url("assets/transparent/firewall.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    top: 30px;
+    left: 20px;
+    z-index: 1;
+    
+}
+
+.internet-gateway {
+    position: relative;
+    background-image: url("assets/transparent/net-switch.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    z-index: 2;
+    
+}
+
+/* TODO */
+/* Create class for every components */
