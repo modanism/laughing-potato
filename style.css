@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    margin: 3rem 0;
+    margin: 0.5rem 0;
 }
 
 h1 {
@@ -27,46 +27,309 @@ h1 {
     width: 100%;
 }
 
+/* Component Preset */
+
 .cloud {
     display: inline-block;
     position: relative;
-    left: 100px;
+    left: 500px;
     background-size:contain;
     background-repeat: no-repeat;
     height: 50px;
     width: 100px;
     background-image: url("assets/transparent/cloud.png");
 }
-
-.wrapper {
-    display: inline-block;
-    width: 100px;
-    position: relative;
-}
-
 .firewall {
-    position: relative;
     background-image: url("assets/transparent/firewall.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 50px;
     width: 50px;
-    top: 30px;
-    left: 20px;
-    z-index: 1;
-    
 }
-
-.internet-gateway {
-    position: relative;
+.net-switch {
+    display: inline-block;
     background-image: url("assets/transparent/net-switch.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 50px;
     width: 50px;
-    z-index: 2;
-    
+}
+.wifi {
+    display: inline-block;
+    background-image: url("assets/transparent/wifi.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.server {
+    display: inline-block;
+    background-image: url("assets/transparent/server.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.pc {
+    display: inline-block;
+    background-image: url("assets/transparent/pc.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.small-box {
+    display: inline-block;
+    background-image: url("assets/transparent/small-box.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.medium-box {
+    display: inline-block;
+    background-image: url("assets/transparent/medium-box.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.inverter {
+    display: inline-block;
+    background-image: url("assets/transparent/inverter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.battery {
+    display: inline-block;
+    background-image: url("assets/transparent/battery.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+}
+.solar-panel {
+    display: inline-block;
+    background-image: url("assets/transparent/solar-panel.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.triangle {
+    display: inline-block;
+    background-image: url("assets/transparent/triangle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.switch {
+    display: inline-block;
+    background-image: url("assets/transparent/switch.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.ground {
+    display: inline-block;
+    background-image: url("assets/transparent/ground.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.lv {
+    display: inline-block;
+    background-image: url("assets/original/lv.JPG");
+    background-size:cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+/* layer 1 */
+.wrapper-1 {
+    display: inline-block;
+    width: 100px;
+    position: relative;
+    left: 300px;
 }
 
-/* TODO */
-/* Create class for every components */
+.firewall.itb {
+    position: relative;
+    top: 30px;
+    left: 20px;
+    z-index: 1;
+}
+
+.internet-gateway {
+    position: relative;
+    z-index: 2;
+}
+
+/* layer 2 */
+.wrapper-2 {
+    left: 30px;
+    top: 10px;
+    display: inline-block;
+    width: 100px;
+    position: relative;
+}
+
+.firewall.labME {
+    position: relative;
+    top: 30px;
+    left: 20px;
+    z-index: 1;
+}
+
+.lab-gateway {
+    position: relative;
+    z-index: 2;
+}
+
+.net-switch.top {
+    position: relative;
+    right: 100px;
+}
+
+.server.warehouse {
+    position: relative;
+    left: 440px;
+}
+
+.wifi.remote {
+    position: relative;
+    left: 200px;
+}
+
+/* layer 3 */
+.layer.three {
+    padding-top:50px;
+}
+.wrapper-3 {
+    display: inline-block;
+    position: relative;
+    left: 160px;
+}
+.pc {
+    position: relative;
+    left: 250px;
+}
+.net-switch.bottom {
+    position: relative;
+    right: 70px;
+}
+
+/* layer 4 */
+.layer.four {
+    padding-top:50px;
+}
+.small-box.left {
+    position: relative;
+    right: 270px;
+}
+
+/* layer 5 */
+.layer.five {
+    padding-top:50px;
+}
+
+.wrapper-right {
+    display: inline-block;
+    position: relative;
+    right: 50px;
+}
+.wrapper-left {
+    display: inline-block;
+    position: relative;
+    right: 270px;
+}
+.medium-box.one {
+    position: relative;
+    right: 40px;
+}
+.medium-box.three {
+    position: relative;
+    right: 40px;
+}
+.medium-box.four {
+    position: relative;
+    right: 5px;
+}
+
+/* layer 6 */
+.layer.six {
+    padding-top:50px;
+}
+.triangle.prio {
+    position: relative;
+    left: 50px;
+    top: 40px;
+}
+.switch.one {
+    position: relative;
+    right: 300px;
+    top: 40px;
+}
+
+
+/* layer 7 */
+.layer.seven {
+    padding-top:50px;
+}
+
+.battery {
+    position: relative;
+    right: 350px;
+    top: 5px;
+}
+.inverter.one {
+    position: relative;
+    right: 310px;
+}
+.inverter.two {
+    position: relative;
+    right: 275px;
+}
+.solar-panel {
+    position: relative;
+    right: 200px;
+}
+.switch.two {
+    position: relative;
+    right: 90px;
+}
+.triangle.non-prio {
+    position: relative;
+    right: 50px;
+}
+.lv.one {
+    height: 50px;
+    width: 5px;
+    left: 220px;
+}
+.lv.two {
+    height: 200px;
+    width: 5px;
+    left: 320px;
+    top: 730px;
+}
+.lv.three {
+    height: 150px;
+    width: 5px;
+    left: 650px;
+    top: 700px;
+}
+
+
+/* layer 8 */
+.layer.eight {
+    padding-top:50px;
+}
+.ground {
+    position: relative;
+    right: 150px;
+}
