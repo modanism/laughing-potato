@@ -39,6 +39,12 @@ h1 {
     width: 100px;
     background-image: url("assets/transparent/cloud.png");
 }
+.cloud::after {
+    content: "Cloud";
+    position: absolute;
+    top: 100%;
+    left: 20%;
+}
 .firewall {
     background-image: url("assets/transparent/firewall.png");
     background-size: contain;
@@ -163,10 +169,23 @@ h1 {
     left: 20px;
     z-index: 1;
 }
+.firewall.itb::before {
+    content: 'ITB Firewall';
+    position: absolute;
+    right: 90%;
+}
+
 
 .internet-gateway {
     position: relative;
     z-index: 2;
+}
+.internet-gateway::after {
+    content: 'ITB Ethernet Gateway';
+    position: absolute;
+    left: 80%;
+    bottom: 60%;
+    font-size: 12px;
 }
 
 /* layer 2 */
@@ -184,27 +203,54 @@ h1 {
     left: 20px;
     z-index: 1;
 }
-
+.firewall.labME::after {
+    content: 'Firewall Lab ME';
+    position: absolute;
+    top: -70%;
+    left: 0%;
+}
 .lab-gateway {
     position: relative;
     z-index: 2;
+}
+.lab-gateway::after {
+    content: "Lab ME Gateway";
+    position: absolute;
+    top: 90%;
+    left: 0;
 }
 
 .net-switch.top {
     position: relative;
     right: 100px;
 }
+.net-switch.top::after {
+    content: 'Switch';
+    position: absolute;
 
+}
 .server.warehouse {
     position: relative;
     left: 440px;
+}
+.server.warehouse::after {
+    content: "Data Warehouse VPS ITB 167.205.57.204";
+    position: absolute;
+    top: 100%;
+    left: -70%;
 }
 
 .wifi.remote {
     position: relative;
     left: 200px;
 }
-
+.wifi.remote::after {
+    content: "WiFi - AP Remote";
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+}
 /* layer 3 */
 .layer.three {
     padding-top:50px;
@@ -214,15 +260,53 @@ h1 {
     position: relative;
     left: 160px;
 }
+.server.one::after{
+    content: 'Modul Lokal 192.168.1.102';
+    position: absolute;
+    font-size: 10px;
+    top: 30%;
+    right: 100%;
+}
+.server.two::after{
+    content: 'Data Lake 192.168.1.73';
+    position: absolute;
+    font-size: 10px;
+    top: 100%;
+    right: 20%;
+}
+.wifi.ap::after{
+    content: 'Wifi - AP SmartGrid-TF-ME';
+    position: absolute;
+    font-size: 10px;
+    top: 30%;
+    left: 85%;
+}
 .pc {
     position: relative;
     left: 250px;
+}
+.pc.admin::after {
+    content: 'HMI Admin';
+    position: absolute;
+    font-size: 12px;
+    top: 90%;
+    left: 10%;
+}
+.pc.party::after {
+    content: '3rd Party Message Service';
+    position: absolute;
+    font-size: 12px;
+    top: 90%;
+    left: 10%;
 }
 .net-switch.bottom {
     position: relative;
     right: 70px;
 }
-
+.net-switch.bottom::after {
+    content: "Switch";
+    position: absolute;
+}
 /* layer 4 */
 .layer.four {
     padding-top:50px;
@@ -231,7 +315,17 @@ h1 {
     position: relative;
     right: 270px;
 }
-
+.small-box.left::after {
+    content: 'Web Box Comm. Interface (192.168.1.13)';
+    position: absolute;
+    font-size: 12px;
+}
+.small-box.right::after {
+    content: 'Modul Lokal Beban';
+    position: absolute;
+    left: 50%;
+    font-size: 12px;
+}
 /* layer 5 */
 .layer.five {
     padding-top:50px;
@@ -251,13 +345,39 @@ h1 {
     position: relative;
     right: 40px;
 }
+.medium-box.one::before {
+    content: "IED Hybrid Inverter";
+    position: absolute;
+    font-size: 12px;
+    top: 20%;
+    left:-200%;
+}
+.medium-box.two::before {
+    content: 'IED PV Grid Inverter';
+    position: absolute;
+    font-size: 12px;
+    top: 20%;
+    left:100%;
+}
 .medium-box.three {
     position: relative;
     right: 40px;
 }
+.medium-box.three::before {
+    content: 'Modul Relay Ethernet';
+    position: absolute;
+    right: 100%;
+    font-size: 12px;
+}
 .medium-box.four {
     position: relative;
     right: 5px;
+}
+.medium-box.four::before {
+    content: 'Modul Relay Ethernet';
+    position: absolute;
+    left: 100%;
+    font-size: 12px;
 }
 
 /* layer 6 */
@@ -268,6 +388,12 @@ h1 {
     position: relative;
     left: 50px;
     top: 40px;
+}
+.triangle.prio::after {
+    content: 'Prioritas (Server, Router, Panel)';
+    position: absolute;
+    font-size: 12px;
+    left: 100%;
 }
 .switch.one {
     position: relative;
@@ -286,17 +412,44 @@ h1 {
     right: 350px;
     top: 5px;
 }
+.battery::before {
+    content: 'Susunan Papan Sel Sistem Baterai';
+    position: absolute;
+    top: 100%;
+    right: 0%;
+}
 .inverter.one {
     position: relative;
     right: 310px;
+}
+.inverter.one::after{
+    content: 'Hybrid Inverter';
+    position: absolute;
+    font-size: 12px;
+    top: 100%;
+    right: 10%;
 }
 .inverter.two {
     position: relative;
     right: 275px;
 }
+.inverter.two::after{
+    content: 'PV Gnd Inverter';
+    position: absolute;
+    font-size: 12px;
+    top: 100%;
+    right: 10%;
+}
 .solar-panel {
     position: relative;
     right: 200px;
+}
+.solar-panel::after{
+    content: 'Susunan Panel Surya';
+    position: absolute;
+    font-size: 12px;
+    top: 100%;
+    right: 5%;
 }
 .switch.two {
     position: relative;
@@ -305,6 +458,12 @@ h1 {
 .triangle.non-prio {
     position: relative;
     right: 50px;
+}
+.triangle.non-prio::after{
+    content: 'Non-prioritas (Cluster Zona 1,2,3,4, dan Perangkat Instrumentasi Lab)';
+    position: absolute;
+    font-size: 12px;
+    left: 90%;
 }
 .lv.one {
     height: 50px;
@@ -332,4 +491,11 @@ h1 {
 .ground {
     position: relative;
     right: 150px;
+}
+.ground::after{
+    content: 'Ext (Gen/Grid)';
+    position: absolute;
+    font-size: 12px;
+    top: 90%;
+    right: 0%;
 }
