@@ -343,7 +343,7 @@ h1 {
 }
 .medium-box.one {
     position: relative;
-    right: 40px;
+    right: 120px;
 }
 .medium-box.one::before {
     content: "IED Hybrid Inverter";
@@ -397,7 +397,7 @@ h1 {
 }
 .switch.one {
     position: relative;
-    right: 300px;
+    right: 360px;
     top: 40px;
 }
 
@@ -405,11 +405,12 @@ h1 {
 /* layer 7 */
 .layer.seven {
     padding-top:50px;
+    position: relative;
 }
 
 .battery {
     position: relative;
-    right: 350px;
+    right: 430px;
     top: 5px;
 }
 .battery::before {
@@ -420,7 +421,7 @@ h1 {
 }
 .inverter.one {
     position: relative;
-    right: 310px;
+    right: 390px;
 }
 .inverter.one::after{
     content: 'Hybrid Inverter';
@@ -468,19 +469,19 @@ h1 {
 .lv.one {
     height: 50px;
     width: 5px;
-    left: 220px;
+    right: 116%;
 }
 .lv.two {
     height: 200px;
     width: 5px;
-    left: 320px;
-    top: 730px;
+    right: 100%;
+    top: -10%;
 }
 .lv.three {
     height: 150px;
     width: 5px;
-    left: 650px;
-    top: 700px;
+    right: 52%;
+    top: 15%;
 }
 
 
@@ -499,3 +500,8 @@ h1 {
     top: 90%;
     right: 0%;
 }
+
+/* TODO:
+    -geser komponen di kiri lv2
+    -rapihin garis
+*/

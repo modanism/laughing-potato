@@ -278,7 +278,9 @@ new LeaderLine(switchOne, lv_3, {
     dash : true,
     size : 2,
     endPlug : 'behind',
-    middleLabel : 'AC'
+    middleLabel : 'AC',
+    path : 'grid',
+    startSocketGravity : 80
 });
 
 // switch to non prioritas (AC)
