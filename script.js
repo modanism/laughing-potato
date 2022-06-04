@@ -55,7 +55,7 @@ function fetchingData() {
             size : 2,
             endPlug : 'behind',
             path : 'grid',
-            middleLabel : data.warehouse_latency.split("=").pop() + 'ms'
+            middleLabel : data.warehouse_latency.split("=").pop() + 's'
         });
 
         // internet gateway to labME gateway
@@ -72,7 +72,7 @@ function fetchingData() {
             path : 'grid',
             startSocket:'right',
             endSocket : 'top',
-            middleLabel : data.locmod_latency.split("=").pop() + 'ms' + 'ms'
+            middleLabel : data.locmod_latency.split("=").pop() + 's' + 's'
         });
         // gateway to data lake
         new LeaderLine(labMEgateway, dataLake, {
@@ -82,7 +82,7 @@ function fetchingData() {
             path : 'grid',
             startSocket:'right',
             endSocket : 'top',
-            middleLabel : data.lake_latency.split("=").pop() + 'ms'
+            middleLabel : data.lake_latency.split("=").pop() + 's'
         });
         // gateway to wifi
         new LeaderLine(labMEgateway, APWifi, {
@@ -91,7 +91,7 @@ function fetchingData() {
             endPlug : 'behind',
             path : 'grid',
             endSocket : 'top',
-            middleLabel : data.router_latency.split("=").pop() + 'ms'
+            middleLabel : data.router_latency.split("=").pop() + 's'
         });
         // switch to web box
         new LeaderLine(netSwitchTop, webBox, {
@@ -99,7 +99,7 @@ function fetchingData() {
             size : 2,
             endPlug : 'behind',
             endSocket : 'top',
-            middleLabel : data.webbox_latency.split("=").pop() + 'ms'
+            middleLabel : data.webbox_latency.split("=").pop() + 's'
         });
         // switch to modul relay ethernet
         new LeaderLine(netSwitchTop, modulRelay, {
@@ -115,7 +115,7 @@ function fetchingData() {
             size : 2,
             endPlug : 'behind',
             endSocket : 'top',
-            middleLabel : data.daqbeban_latency.split("=").pop() + 'ms'
+            middleLabel : data.daqbeban_latency.split("=").pop() + 's'
         });
     });
 }

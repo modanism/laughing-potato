@@ -74,7 +74,7 @@
             <div class="ground"></div>
         </div>
     </div>
-<script src="leader-line.min.js"></script>
+<script src="library/leader-line.min.js"></script>
 <script src="script.js"></script>
 
 </body>
