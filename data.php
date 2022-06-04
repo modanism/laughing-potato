@@ -1,9 +1,9 @@
 <?php
 //connect to database
-$server = '167.205.57.204'; //ganti ke ip address nya
-$username = 'admin'; //ganti ke admin
-$password = 'adminpass'; //ganti ke adminpass
-$database = 'TA23'; //ganti ke TA23
+$server = '167.205.57.204'; 
+$username = 'michael'; 
+$password = '02022000'; 
+$database = 'TA23'; 
 $connection = new mysqli($server, $username, $password, $database, 3306) or die("not connected");
 
 //query data from network_monitor table
