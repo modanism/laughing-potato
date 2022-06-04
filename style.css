@@ -23,6 +23,10 @@ h1 {
     margin: 0 auto;
 }
 
+.container .p {
+    font-size: 12px;
+}
+
 .layer {
     width: 100%;
 }
@@ -233,6 +237,7 @@ h1 {
     position: relative;
     left: 440px;
 }
+
 .server.warehouse::after {
     content: "Data Warehouse VPS ITB 167.205.57.204";
     position: absolute;
@@ -258,8 +263,9 @@ h1 {
 .wrapper-3 {
     display: inline-block;
     position: relative;
-    left: 160px;
+    left: 200px;
 }
+
 .server.one::after{
     content: 'Modul Lokal 192.168.1.102';
     position: absolute;
