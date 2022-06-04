@@ -25,9 +25,9 @@ window.addEventListener('load', function() {
     const non_prio = document.querySelector('.triangle.non-prio');
     const battery = document.querySelector('.battery');
     const ground = document.querySelector('.ground');
-    const lv_1 = document.querySelector('.lv.one');
     const lv_2 = document.querySelector('.lv.two');
     const lv_3 = document.querySelector('.lv.three');
+    const time = document.querySelector('.wrapper-info .time');
 
     function fetchingData() {
         fetch('data.php')
@@ -44,104 +44,107 @@ window.addEventListener('load', function() {
                 }
             }
 
-            function formatData(item) {
-                if (item == null) {
-                    return "";
-                } else {
-                    return data.item.split("=").pop() + 's';
-                }
-            }
-
             //Component's status
-            isOnline(data.warehouse_status) ? dataWarehouse.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.router_status) ? APWifi.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.lake_status) ? dataLake.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.locmod_status) ? modulLokal.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.webbox_status) ? webBox.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.relay_status) ? modulRelay.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
-            isOnline(data.daqbeban_status) ? modulLokalBeban.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
+            isOnline(data.warehouse_status) ? dataWarehouse.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : dataWarehouse.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.warehouse_status+"</p>";
+            isOnline(data.router_status) ? APWifi.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : APWifi.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.router_status+"</p>";
+            isOnline(data.lake_status) ? dataLake.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : dataLake.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.lake_status+"</p>";
+            isOnline(data.locmod_status) ? modulLokal.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : modulLokal.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.locmod_status+"</p>";
+            isOnline(data.webbox_status) ? webBox.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : webBox.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.webbox_status+"</p>";
+            isOnline(data.relay_status) ? modulRelay.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : modulRelay.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.relay_status+"</p>";
+            isOnline(data.daqbeban_status) ? modulLokalBeban.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : modulLokalBeban.innerHTML = "<p style='color:red;font-size:14px;position:relative;bottom:35%'>"+data.daqbeban_status+"</p>";
             
             
             // gateway to data warehouse
             new LeaderLine(gateway, dataWarehouse, {
-                color : isOnline(data.warehouse_status) ? 'green' : 'black',
+                color : isOnline(data.warehouse_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 path : 'grid',
-                middleLabel : formatData(data.warehouse_latency)
+                middleLabel : data.warehouse_latency == null ? "" : data.warehouse_latency.split("=").pop() + 'ms'
             });
 
             // internet gateway to labME gateway
             new LeaderLine(gateway, labMEgateway, {
-                color : isOnline(data.warehouse_status) ? 'green' : 'black',
+                color : isOnline(data.warehouse_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind'
             });
             // gateway to modul lokal
             new LeaderLine(labMEgateway, modulLokal, {
-                color : isOnline(data.locmod_status) ? 'green' : 'black',
+                color : isOnline(data.locmod_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 path : 'grid',
                 startSocket:'right',
                 endSocket : 'top',
-                middleLabel : formatData(data.locmod_latency)
+                middleLabel : data.locmod_latency == null ? "" : data.locmod_latency.split("=").pop() + 'ms'
             });
             // gateway to data lake
             new LeaderLine(labMEgateway, dataLake, {
-                color : isOnline(data.lake_status) ? 'green' : 'black',
+                color : isOnline(data.lake_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 path : 'grid',
                 startSocket:'right',
                 endSocket : 'top',
-                middleLabel : formatData(data.lake_latency)
+                middleLabel : data.lake_latency == null ? "" : data.lake_latency.split("=").pop() + 'ms'
             });
             // gateway to wifi
             new LeaderLine(labMEgateway, APWifi, {
-                color : isOnline(data.router_status) ? 'green' : 'black',
+                color : isOnline(data.router_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 path : 'grid',
                 endSocket : 'top',
-                middleLabel : formatData(data.router_latency)
+                middleLabel : LeaderLine.captionLabel(data.router_latency == null ? "" : data.router_latency.split("=").pop() + 'ms',{lineOffset : 60})
             });
             // switch to web box
             new LeaderLine(netSwitchTop, webBox, {
-                color : isOnline(data.webbox_status) ? 'green' : 'black',
+                color : isOnline(data.webbox_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : formatData(data.webbox_latency)
+                middleLabel : data.webbox_latency == null ? "" : data.webbox_latency.split("=").pop() + 'ms'
             });
             // switch to modul relay ethernet
             new LeaderLine(netSwitchTop, modulRelay, {
-                color : isOnline(data.relay_status) ? 'green' : 'black',
+                color : isOnline(data.relay_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : formatData(data.relay_latency)
+                middleLabel : data.relay_latency == null ? "" : data.relay_latency.split("=").pop() + 'ms'
             });
             // switch to modul lokal beban
             new LeaderLine(netSwitchTop, modulLokalBeban, {
-                color : isOnline(data.daqbeban_status) ? 'green' : 'black',
+                color : isOnline(data.daqbeban_status) ? 'green' : 'red',
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : formatData(data.daqbeban_latency)
+                middleLabel : data.daqbeban_latency == null ? "" : data.daqbeban_latency.split("=").pop() + 'ms'
             });
         });
+    }
+
+    function displayTime() {
+        // create a new `Date` object
+        let today = new Date();
+        // get the date and time
+        let now = today.toLocaleString();
+        console.log(now);
+        time.innerText = 'Last update : '+now;
     }
 
     setInterval(function() {
         try {
             fetchingData();
             console.log("SUCC");
+            displayTime();
+            
         } catch (error) {
             console.log("Failed fetching data");
         }
         
-    },3000);
+    },10000);
 
     // cloud to gateway
     new LeaderLine(cloud, gateway, {
@@ -286,29 +289,16 @@ window.addEventListener('load', function() {
         middleLabel : 'AC'
     });
 
-    // LV-3 to prioritas (AC)
-    new LeaderLine(lv_3, prio, {
-        startSocket : 'right',
-        endSocket : 'left',
-        color : 'blue',
-        dash : true,
-        size : 2,
-        endPlug : 'behind',
-        middleLabel : 'AC',
-        path : 'grid'
-    });
 
     // switch to lv-3
-    new LeaderLine(switchOne, lv_3, {
-        startSocket : 'right',
-        endSocket : 'left',
+    new LeaderLine(switchOne, prio, {
         color : 'blue',
         dash : true,
         size : 2,
         endPlug : 'behind',
         middleLabel : 'AC',
+        endLabel : LeaderLine.captionLabel('AC',{offset : [-50,-10]}),
         path : 'grid',
-        startSocketGravity : 80
     });
 
     // switch to non prioritas (AC)

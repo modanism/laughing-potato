@@ -253,8 +253,8 @@ h1 {
     content: "WiFi - AP Remote";
     font-size: 12px;
     position: absolute;
-    top: 100%;
-    left: 0%;
+    top: 0%;
+    left: 50%;
 }
 /* layer 3 */
 .layer.three {
@@ -274,11 +274,12 @@ h1 {
     right: 100%;
 }
 .server.two::after{
-    content: 'Data Lake 192.168.1.73';
+    content: " Data Lake \A 192.168.1.73 ";
+    white-space: pre;
     position: absolute;
     font-size: 10px;
     top: 100%;
-    right: 20%;
+    right: 35%;
 }
 .wifi.ap::after{
     content: 'Wifi - AP SmartGrid-TF-ME';
@@ -329,12 +330,13 @@ h1 {
 .small-box.right::after {
     content: 'Modul Lokal Beban';
     position: absolute;
-    left: 50%;
+    left: 55%;
     font-size: 12px;
 }
 /* layer 5 */
 .layer.five {
     padding-top:50px;
+    position: relative;
 }
 
 .wrapper-right {
@@ -346,6 +348,44 @@ h1 {
     display: inline-block;
     position: relative;
     right: 270px;
+}
+.wrapper-info {
+    display: inline-block;
+    position: absolute;
+    top:-50%;
+    left: 90%;
+}
+.box {
+    margin: 10px 0;
+    position: relative;
+    width: 90px;
+    height: 20px;
+}
+.green {
+    background-color: green;
+}
+.green::after {
+    content: 'Online';
+    position: absolute;
+    top: 10%;
+    left: 105%;
+}
+
+.red {
+    background-color: red;
+}
+
+.red::after {
+    content: 'Offline';
+    position: absolute;
+    top: 10%;
+    left: 105%;
+}
+
+.time {
+    margin: 20px 0;
+    width: max-content;
+    text-align: left;
 }
 .medium-box.one {
     position: relative;
@@ -380,7 +420,7 @@ h1 {
     right: 5px;
 }
 .medium-box.four::before {
-    content: 'Modul Relay Ethernet';
+    content: 'Smart Meter Beban Listrik';
     position: absolute;
     left: 100%;
     font-size: 12px;
@@ -484,10 +524,10 @@ h1 {
     top: -10%;
 }
 .lv.three {
-    height: 150px;
+    height:150px;
     width: 5px;
     right: 52%;
-    top: 15%;
+    top: 0%;
 }
 
 

@@ -54,6 +54,11 @@
                 <div class="medium-box three"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
                 <div class="medium-box four"></div>
             </div>
+            <div class="wrapper-info">
+                <div class="green box"></div>
+                <div class="red box"></div>
+                <p class="time">Last update :</p>
+            </div>
         </div>
         <div class="layer six">
             <div class="switch one"></div>
