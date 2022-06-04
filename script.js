@@ -134,6 +134,9 @@ window.addEventListener('load', function() {
         time.innerText = 'Last update : '+now;
     }
 
+
+   
+
     setInterval(function() {
         try {
             fetchingData();
@@ -155,7 +158,67 @@ window.addEventListener('load', function() {
         endSocket : 'top',
     });
 
+     // gateway to data warehouse
+     new LeaderLine(gateway, dataWarehouse, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        path : 'grid'
+    });
 
+    // internet gateway to labME gateway
+    new LeaderLine(gateway, labMEgateway, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind'
+    });
+    // gateway to modul lokal
+    new LeaderLine(labMEgateway, modulLokal, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        path : 'grid',
+        startSocket:'right',
+        endSocket : 'top'
+    });
+    // gateway to data lake
+    new LeaderLine(labMEgateway, dataLake, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        path : 'grid',
+        startSocket:'right',
+        endSocket : 'top'
+    });
+    // gateway to wifi
+    new LeaderLine(labMEgateway, APWifi, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        path : 'grid',
+        endSocket : 'top'
+    });
+    // switch to web box
+    new LeaderLine(netSwitchTop, webBox, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        endSocket : 'top'
+    });
+    // switch to modul relay ethernet
+    new LeaderLine(netSwitchTop, modulRelay, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        endSocket : 'top'
+    });
+    // switch to modul lokal beban
+    new LeaderLine(netSwitchTop, modulLokalBeban, {
+        color : 'black',
+        size : 2,
+        endPlug : 'behind',
+        endSocket : 'top'
+    });
 
     // gateway to wifi remote
     new LeaderLine(gateway, remoteWifi, {
