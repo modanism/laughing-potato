@@ -28,7 +28,6 @@ window.addEventListener('load', function() {
     const lv_1 = document.querySelector('.lv.one');
     const lv_2 = document.querySelector('.lv.two');
     const lv_3 = document.querySelector('.lv.three');
-    const header = document.querySelector('header');
 
     function fetchingData() {
         fetch('data.php')
@@ -37,9 +36,22 @@ window.addEventListener('load', function() {
         })
         .then(function(data){
             function isOnline(item) {
-                if (item=="Online") return true
-                else return false
+                if (item === null) {
+                    return false;
+                } else {
+                    if (item=="Online") return true
+                    else return false;
+                }
             }
+
+            function formatData(item) {
+                if (item == null) {
+                    return "";
+                } else {
+                    return data.item.split("=").pop() + 's';
+                }
+            }
+
             //Component's status
             isOnline(data.warehouse_status) ? dataWarehouse.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
             isOnline(data.router_status) ? APWifi.innerHTML = "<p style='color:green;font-size:14px;position:relative;bottom:35%';>Online</p>" : "<p style='font-size:14px;position:relative;bottom:35%'>Offline</p>";
@@ -56,7 +68,7 @@ window.addEventListener('load', function() {
                 size : 2,
                 endPlug : 'behind',
                 path : 'grid',
-                middleLabel : data.warehouse_latency.split("=").pop() + 's'
+                middleLabel : formatData(data.warehouse_latency)
             });
 
             // internet gateway to labME gateway
@@ -73,7 +85,7 @@ window.addEventListener('load', function() {
                 path : 'grid',
                 startSocket:'right',
                 endSocket : 'top',
-                middleLabel : data.locmod_latency.split("=").pop() + 's' + 's'
+                middleLabel : formatData(data.locmod_latency)
             });
             // gateway to data lake
             new LeaderLine(labMEgateway, dataLake, {
@@ -83,7 +95,7 @@ window.addEventListener('load', function() {
                 path : 'grid',
                 startSocket:'right',
                 endSocket : 'top',
-                middleLabel : data.lake_latency.split("=").pop() + 's'
+                middleLabel : formatData(data.lake_latency)
             });
             // gateway to wifi
             new LeaderLine(labMEgateway, APWifi, {
@@ -92,7 +104,7 @@ window.addEventListener('load', function() {
                 endPlug : 'behind',
                 path : 'grid',
                 endSocket : 'top',
-                middleLabel : data.router_latency.split("=").pop() + 's'
+                middleLabel : formatData(data.router_latency)
             });
             // switch to web box
             new LeaderLine(netSwitchTop, webBox, {
@@ -100,7 +112,7 @@ window.addEventListener('load', function() {
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : data.webbox_latency.split("=").pop() + 's'
+                middleLabel : formatData(data.webbox_latency)
             });
             // switch to modul relay ethernet
             new LeaderLine(netSwitchTop, modulRelay, {
@@ -108,7 +120,7 @@ window.addEventListener('load', function() {
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : data.relay_latency
+                middleLabel : formatData(data.relay_latency)
             });
             // switch to modul lokal beban
             new LeaderLine(netSwitchTop, modulLokalBeban, {
@@ -116,7 +128,7 @@ window.addEventListener('load', function() {
                 size : 2,
                 endPlug : 'behind',
                 endSocket : 'top',
-                middleLabel : data.daqbeban_latency.split("=").pop() + 's'
+                middleLabel : formatData(data.daqbeban_latency)
             });
         });
     }
