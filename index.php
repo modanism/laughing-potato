@@ -1,19 +1,3 @@
-<?php
-//connect to database
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'test';
-$connection = new mysqli($server, $username, $password, $database, 3307) or die("not connected");
-
-//query data from network_monitor table
-$result = mysqli_query($connection,"SELECT * FROM network_monitor ORDER BY id DESC LIMIT 1");
-
-//fetch data
-$datas = mysqli_fetch_assoc($result);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,21 +29,21 @@ $datas = mysqli_fetch_assoc($result);
             </div>
             <div class="wifi remote"></div>
             <div class="server warehouse">
-                <p style="font-size:14px;position:relative;bottom:35%">Online</p>
+                <p style="font-size:14px;position:relative;bottom:35%">[Status]</p>
             </div>
         </div>
         <div class="layer three">
             <div class="wrapper-3">
-                <div class="server one"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
-                <div class="server two"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
-                <div class="wifi ap"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
+                <div class="server one"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
+                <div class="server two"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
+                <div class="wifi ap"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
             </div>
             <div class="pc admin"></div>
             <div class="pc party"></div>
         </div>
         <div class="layer four">
-            <div class="small-box left"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
-            <div class="small-box right"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
+            <div class="small-box left"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
+            <div class="small-box right"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
         </div>
         <div class="layer five">
             <div class="wrapper-left">
@@ -67,7 +51,7 @@ $datas = mysqli_fetch_assoc($result);
                 <div class="medium-box two"></div>
             </div>
             <div class="wrapper-right">
-                <div class="medium-box three"><p style="font-size:14px;position:relative;bottom:35%">Online</p></div>
+                <div class="medium-box three"><p style="font-size:14px;position:relative;bottom:35%">[Status]</p></div>
                 <div class="medium-box four"></div>
             </div>
         </div>
