@@ -355,32 +355,6 @@ h1 {
     top:-50%;
     left: 90%;
 }
-.box {
-    margin: 10px 0;
-    position: relative;
-    width: 90px;
-    height: 20px;
-}
-.green {
-    background-color: green;
-}
-.green::after {
-    content: 'Online';
-    position: absolute;
-    top: 10%;
-    left: 105%;
-}
-
-.red {
-    background-color: red;
-}
-
-.red::after {
-    content: 'Offline';
-    position: absolute;
-    top: 10%;
-    left: 105%;
-}
 
 .time {
     margin: 20px 0;
